@@ -3,7 +3,7 @@
   "name_for_human": "Home Assistant",
   "name_for_model": "homeassistant",
   "description_for_human": "Manage your Home Assistant.",
-  "description_for_model": "Plugin for managing the devices in the user's smart home, which was set up and built with home assistant. You can fetch devices, read their states (i.e. is a device on or off, temperature values, humidity values etc.) and change their states (i.e. turn devices on or off, enable or disable scenes, set specific values like temperatures, etc). Each entity has an entity_id, which is in the format '{domain}.{unique_id}'. Keep in mind that the 'domain' input for getEntities must always be an array!",
+  "description_for_model": "Plugin for managing the devices in the user's smart home, which was set up and built with home assistant. You can fetch devices, read their states (i.e. is a device on or off, temperature values, humidity values etc.) and change their states (i.e. turn devices on or off, enable or disable scenes, set specific values like temperatures, etc). Each entity has an entity_id, which is in the format '{domain}.{unique_id}'.",
   "auth": {
     "type": "oauth",
     "client_url": "{HASS_BASE_URL}/auth/authorize",
