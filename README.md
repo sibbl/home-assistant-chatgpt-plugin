@@ -27,3 +27,5 @@ This is a protoypical implementation of a Home Assistant ChatGPT plugin. It curr
 * [ ] add room and area information
 * [ ] use intent REST API endpoint
 * [ ] use templating REST API endpoint
+* [ ] add managing automations
+* [ ] add managing scripts
