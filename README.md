@@ -21,6 +21,7 @@ This is a protoypical implementation of a Home Assistant ChatGPT plugin. It curr
 
 ## Roadmap
 
+* [ ] easier setup flow as integration 
 * [ ] make fetching entities more robust
 * [ ] support calling services
 * [ ] add room and area information
