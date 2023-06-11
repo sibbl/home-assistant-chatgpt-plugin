@@ -1,0 +1,42 @@
+openapi: 3.1.0
+info:
+  title: Home Assistant ChatGPT OpenAPI
+  description: Control the smart home
+  version: "v1"
+servers:
+  - url: https://home.sibbl.net/api
+paths:
+  /chatgpt/entities:
+    get:
+      operationId: getEntities
+      summary: Retrieves all devices and their states.
+      responses:
+        "200":
+          description: OK
+      parameters:
+        - in: query
+          name: domain
+          schema:
+            $ref: "#/components/schemas/Domain"
+          required: false
+          description: Include only the entities of these given domains in the response. The query parameter can be set multiple times if unsure. If not set, all entities are returned.
+
+components:
+  schemas:
+    Domain:
+      type: string
+      enum:
+        - person
+        - sensor
+        - light
+        - media_player
+        - climate
+        - binary_sensor
+        - update
+        - input_number
+        - input_boolean
+        - automation
+        - script
+        - scene
+        - camera
+        # TODO: add more

@@ -1,0 +1,9 @@
+{
+  "domain": "chatgpt_plugin",
+  "name": "ChatGPT Plugin",
+  "version": "0.0.1",
+  "documentation": "https://github.com/sibbl/home-assistant-chatgpt-plugin",
+  "dependencies": [],
+  "codeowners": ["@sibbl"],
+  "requirements": []
+}
