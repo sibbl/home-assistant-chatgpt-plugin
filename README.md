@@ -1,6 +1,6 @@
 # Home Assistant ChatGPT plugin
 
-This is a protoypical implementation of a Home Assistant ChatGPT plugin.
+This is a protoypical implementation of a Home Assistant ChatGPT plugin. It currently only supports reading entities.
 
 ## Setup
 
@@ -15,7 +15,7 @@ This is a protoypical implementation of a Home Assistant ChatGPT plugin.
 1. When asked, enter the following values and continue:
    * `clientId` must be set to `https://chat.openai.com`
    * `clientSecret` can be set to any value like `1234`
-1. Open the `openai-manifest.json` again and replace `{OPENAI_VERIFICATION_TOKEN}` with the value you see (i.e. set the value `XYZ` when `{"openai":"XYZ"}` is displayed.
+1. Open the `openai-manifest.json` again and replace `{OPENAI_VERIFICATION_TOKEN}` with the value ChatGPT generated for validation purposes and displays in the dialog (i.e. set the value `XYZ` when `{"openai":"XYZ"}` is displayed)
 1. Click "Verify tokens" and login with your Home Assistant account
 1. Start chatting 🚀
 
