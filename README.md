@@ -4,10 +4,15 @@ This is a protoypical implementation of a Home Assistant ChatGPT plugin. It curr
 
 ## Setup
 
-1. Download the `custom_components` directory of this repository
+1. Install via [HACS](https://hacs.xyz) as custom repository OR download the `custom_components` directory of this repository
 1. Restart your Home Assistant
 1. Add the "ChatGPT plugin" integration to your Home Assistant by following its instructions
 1. Start chatting 🚀
+
+## Troubleshooting
+
+If you have some troubles, simply try the steps again.
+After removing the integration, it's not necessary to restart Home Assistant.
 
 ## Roadmap
 
