@@ -18,7 +18,7 @@
     "type": "openapi",
     "url": "{HASS_BASE_URL}/chatgpt/openapi.yaml"
   },
-  "logo_url": "{HASS_BASE_URL}/static/icons/favicon-512x512.png",
+  "logo_url": "{HASS_BASE_URL}/static/icons/favicon-apple-180x180.png",
   "contact_email": "home-assistant-chatgpt-plugin@sibbl.net",
   "legal_info_url": "https://github.com/sibbl/home-assistant-chatgpt-plugin/legal.md"
 }
