@@ -1,6 +1,6 @@
 import logging
 from aiohttp.web import Request, Response
-from homeassistant.const import HTTP_NOT_FOUND
+from http import HTTPStatus
 from homeassistant.components.http import HomeAssistantView
 from .const import CONF_BASE_URL, CONF_OPENAI_VERIFICATION_TOKEN
 from homeassistant.core import HomeAssistant
@@ -54,12 +54,15 @@ class APIEntitiesView(HomeAssistantView):
             {
                 'entity_id': state.entity_id,
                 'state': state.state,
-                **({'name': state.attributes.get('friendly_name')} if state.attributes.get('friendly_name') is not None else {}),
-                **({'unit': state.attributes.get('unit_of_measurement')} if state.attributes.get('unit_of_measurement') is not None else {}),
+                **({'name': state.attributes.get('friendly_name')} 
+                   if state.attributes.get('friendly_name') is not None else {}),
+                **({'unit': state.attributes.get('unit_of_measurement')}
+                   if state.attributes.get('unit_of_measurement') is not None else {}),
                 # TODO: add area
             }
             for state in request.app["hass"].states.async_all()
-            if (len(included_domains) == 0 or state.entity_id.split('.')[0] in included_domains) and entity_perm(state.entity_id, "read")
+            if (len(included_domains) == 0 or state.entity_id.split('.')[0]
+                in included_domains) and entity_perm(state.entity_id, "read")
         ]
         return self.json(entities)
 
@@ -87,7 +90,7 @@ class APIAreaDetailView(HomeAssistantView):
         area_detail = await async_areas_area_json(request.app["hass"], area_id)
         if area_detail:
             return self.json(area_detail)
-        return self.json_message(f"Area {area_id} not found.", HTTP_NOT_FOUND)
+        return self.json_message(f"Area {area_id} not found.", HTTPStatus.NOT_FOUND)
 
 async def async_areas_json(hass):
     """Generate areas data to JSONify."""

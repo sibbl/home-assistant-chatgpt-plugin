@@ -6,3 +6,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies: 
     - 0.0.0.0/0
+logger:
+  default: info
+  logs:
+    custom_components.chatgpt_plugin: debug

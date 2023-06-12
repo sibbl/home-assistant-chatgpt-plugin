@@ -19,8 +19,12 @@ class OpenApiDocView(HomeAssistantView):
         filename = os.path.join(dirname, "../templates/openapi_doc.yaml")
         with open(filename, 'r') as f:
             data = f.read()
-        data = data.replace("{{BASE_URL}}", self.base_url or request.app["hass"].config.external_url)
+        data = data.replace(
+            "{{BASE_URL}}",
+            self.base_url or request.app["hass"].config.external_url
+        )
         return Response(text=data, headers={"Content-Type": "application/x-yaml"})
         
-# as long as we cannot unregister or replace views, we need to use this singleton instance
+# as long as we cannot unregister or replace views,
+# we need to use this singleton instance
 openapi_doc_view_instance = OpenApiDocView()

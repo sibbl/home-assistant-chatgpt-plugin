@@ -23,9 +23,16 @@ class AiPluginView(HomeAssistantView):
         filename = os.path.join(dirname, "../templates/ai_plugin.json")
         with open(filename, 'r') as f:
             data = f.read()
-        data = data.replace("{{BASE_URL}}", self.base_url or request.app["hass"].config.external_url)
-        data = data.replace("{{OPENAI_VERIFICATION_TOKEN}}", self.verification_token or "set up is in progress")
+        data = data.replace(
+            "{{BASE_URL}}",
+            self.base_url or request.app["hass"].config.external_url
+        )
+        data = data.replace(
+            "{{OPENAI_VERIFICATION_TOKEN}}",
+            self.verification_token or "set up is in progress"
+        )
         return Response(text=data, headers={"Content-Type": "application/json"})
 
-# as long as we cannot unregister or replace views, we need to use this singleton instance
+# as long as we cannot unregister or replace views,
+# we need to use this singleton instance
 ai_plugin_view_instance = AiPluginView()
