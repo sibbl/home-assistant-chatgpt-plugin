@@ -27,6 +27,5 @@ class AiPluginView(HomeAssistantView):
         data = data.replace("{{OPENAI_VERIFICATION_TOKEN}}", self.verification_token or "set up is in progress")
         return Response(text=data, headers={"Content-Type": "application/json"})
 
-print("new AiPluginView instance")
 # as long as we cannot unregister or replace views, we need to use this singleton instance
 ai_plugin_view_instance = AiPluginView()

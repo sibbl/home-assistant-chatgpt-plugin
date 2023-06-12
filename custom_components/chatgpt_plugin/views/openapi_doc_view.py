@@ -22,6 +22,5 @@ class OpenApiDocView(HomeAssistantView):
         data = data.replace("{{BASE_URL}}", self.base_url or request.app["hass"].config.external_url)
         return Response(text=data, headers={"Content-Type": "application/x-yaml"})
         
-print("new OpenApiDocView instance")
 # as long as we cannot unregister or replace views, we need to use this singleton instance
 openapi_doc_view_instance = OpenApiDocView()

@@ -1,8 +1,8 @@
 import logging
-import os
 from aiohttp.web import Request, Response
+from homeassistant.const import HTTP_NOT_FOUND
 from homeassistant.components.http import HomeAssistantView
-from .const import DOMAIN, CONF_BASE_URL, CONF_OPENAI_VERIFICATION_TOKEN
+from .const import CONF_BASE_URL, CONF_OPENAI_VERIFICATION_TOKEN
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.area_registry import (
