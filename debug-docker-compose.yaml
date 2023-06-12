@@ -1,0 +1,10 @@
+version: "3"
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant:latest
+    volumes:
+      - ./debug-ha-config.yaml:/config/configuration.yaml
+      - ./custom_components:/config/custom_components
+    ports:
+      - 8123:8123

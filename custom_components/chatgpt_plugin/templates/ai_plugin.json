@@ -1,0 +1,24 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Home Assistant",
+  "name_for_model": "home_assistant",
+  "description_for_human": "Manage the devices and services of your smart home powered by Home Assistant.",
+  "description_for_model": "Plugin for managing the devices in a smart home, which is handled by Home Assistant. You can fetch devices and their entities. You can also read entity states (i.e. is a device on or off, temperature values, humidity values etc.) or call specific services to do something with devices or entities (i.e. turn things on or off, enable or disable scenes, set specific values like temperatures, etc). Each entity has an entity_id, which is in the format '{domain}.{unique_id}'. Use the `getEntities` endpoint to get all entities. Use the `getEntityById` endpoint to get details of an entity.",
+  "auth": {
+    "type": "oauth",
+    "client_url": "{{BASE_URL}}/auth/authorize",
+    "scope": "",
+    "authorization_url": "{{BASE_URL}}/auth/token",
+    "authorization_content_type": "application/x-www-form-urlencoded",
+    "verification_tokens": {
+      "openai": "{{OPENAI_VERIFICATION_TOKEN}}"
+    }
+  },
+  "api": {
+    "type": "openapi",
+    "url": "{{BASE_URL}}/chatgpt/openapi.yaml"
+  },
+  "logo_url": "{{BASE_URL}}/static/icons/favicon-apple-180x180.png",
+  "contact_email": "home-assistant-chatgpt-plugin@sibbl.net",
+  "legal_info_url": "https://github.com/sibbl/home-assistant-chatgpt-plugin"
+}

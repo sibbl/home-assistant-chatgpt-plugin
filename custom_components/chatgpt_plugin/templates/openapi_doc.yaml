@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Home Assistant ChatGPT OpenAPI
+  description: Control the smart home
+  version: "v1"
+servers:
+  - url: "{{BASE_URL}}/api"
+paths:
+  /chatgpt/entities:
+    get:
+      operationId: getEntities
+      summary: Retrieves all devices and their states.
+      responses:
+        "200":
+          description: OK
+      parameters:
+        - in: query
+          name: domain
+          schema:
+            $ref: "#/components/schemas/Domain"
+            # this can also be an array. When defining it as array, ChatGPT always needs 2 tries. "oneOf" is not supported by GPT as it seems.
+          required: false
+          description: Include only the entities of these given domains in the response. The query parameter can be set multiple times if unsure. If not set, all entities are returned.
+  /states/{entity_id}:
+    get:
+      operationId: getEntityById
+      summary: Retrieves a single entity and its state and attributes.
+      parameters:
+        - name: entity_id
+          in: path
+          description: The ID of the entity to retrieve the state for.
+          required: true
+          schema:
+            type: string  
+      responses:
+        "200":
+          description: OK
+  /chatgpt/areas:
+    get:
+      operationId: getAreas
+      summary: Retrieves all areas which are available in the home.
+      responses:
+        "200":
+          description: OK
+  /chatgpt/areas/{area_id}:
+    get:
+      operationId: getAreaById
+      summary: Retrieves all devices and entities of a given area
+      parameters:
+        - name: area_id
+          in: path
+          description: The ID of the area to retrieve the entities and devices for.
+          required: true
+          schema:
+            type: string  
+      responses:
+        "200":
+          description: OK
+
+components:
+  schemas:
+    Domain:
+      type: string
+      enum:
+        - person
+        - sensor
+        - light
+        - media_player
+        - climate
+        - binary_sensor
+        - update
+        - input_number
+        - input_boolean
+        - automation
+        - script
+        - scene
+        - camera
+        # TODO: find a working solution with many entities and without domains. Or make this list dynamic.
